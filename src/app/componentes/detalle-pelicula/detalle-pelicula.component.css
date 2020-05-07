@@ -1,0 +1,27 @@
+
+.detalle-pelicula {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 80%;
+  width: 80%;
+  background-color: #4CAF50;
+  border-style: double;
+  border-radius: 50px;
+  padding: 6vh 4vw 4vh 4vw;
+  margin: 2vh 5vw 5vh 5vw;
+}
+
+.input-detalle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1.5vh;
+  width: 100%;
+}
+
+input {
+  width: 8vw;
+  height: 3vh;
+}

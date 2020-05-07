@@ -1,0 +1,20 @@
+<mat-toolbar>
+  <span>Peliculas App</span>
+  <button mat-button routerLink="">Home</button>
+  <button mat-button routerLink="/busqueda">Busqueda</button>
+  <button mat-button [matMenuTriggerFor]="peliculas">Peliculas</button>
+  <mat-menu #peliculas="matMenu">
+    <button mat-menu-item routerLink="/peliculas/alta">Alta</button>
+    <button mat-menu-item routerLink="/peliculas/listado">Listado</button>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="actor">Actor</button>
+  <mat-menu #actor="matMenu">
+    <button mat-menu-item routerLink="/actor/alta">Alta</button>
+    <button mat-menu-item routerLink="/actor/listado">Listado</button>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="paises">Paises</button>
+  <mat-menu #paises="matMenu">
+    <button mat-menu-item routerLink="/paises/listado">Listado</button>
+  </mat-menu>
+
+</mat-toolbar>

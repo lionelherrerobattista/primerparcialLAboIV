@@ -1,0 +1,27 @@
+<div *ngIf='peliculaSeleccionada != null' class='detalle-pelicula'>
+  <div class='input-detalle'>
+    <label>Id:</label>
+    <input mat-Input value={{peliculaSeleccionada.id}}>
+  </div>
+  <div class='input-detalle'>
+    <label>Nombre:</label>
+    <input mat-Input value={{peliculaSeleccionada.nombre}}>
+  </div >
+  <div class='input-detalle'>
+    <label>Tipo:</label>
+    <input mat-Input value={{peliculaSeleccionada.tipo}}>
+  </div>
+  <div class='input-detalle'>
+    <label>Fecha de Estreno:</label>
+    <input mat-Input value={{peliculaSeleccionada.fechaDeEstreno}}>
+  </div>
+  <div class='input-detalle'>
+    <label>Cantidad de Público:</label>
+    <input mat-Input value={{peliculaSeleccionada.cantidadDePublico}}>
+  </div>
+  <div>
+    <img [src]="peliculaSeleccionada.fotoDePelicula">
+  </div>
+  <button (click)="borrarPelicula()">Borrar</button>
+</div>
+

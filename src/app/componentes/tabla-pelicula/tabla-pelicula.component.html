@@ -1,0 +1,27 @@
+
+<div class='tabla'>
+  <table id='tabla-peliculas'>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Tipo</th>
+        <th>Fecha de Estreno</th>
+        <th>Cantidad de Público</th>
+        <th>Foto de Pelicula</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr (click)="MostrarDetalles(pelicula)" *ngFor="let pelicula of listadoPeliculas">
+        <td>{{pelicula.id}}</td>
+        <td>{{pelicula.nombre}}</td>
+        <td>{{pelicula.tipo}}</td>
+        <td>{{pelicula.fechaDeEstreno}}</td>
+        <td>{{pelicula.cantidadDePublico}}</td>
+        <td><img [src]="pelicula.fotoDePelicula"></td>
+        <!-- <td><button type="button" (click)="MostrarDetalles(pelicula)">Detalle</button></td> -->
+      </tr>
+
+    </tbody>
+  </table>
+</div>

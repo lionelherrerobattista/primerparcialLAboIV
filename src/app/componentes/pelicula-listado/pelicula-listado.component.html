@@ -1,0 +1,11 @@
+<app-menu></app-menu>
+<div class="apps">
+  <div class="tabla-pelicula">
+    <app-tabla-pelicula (peliculaSeleccionada)="TomarPeliculaParaMostrar($event)"></app-tabla-pelicula>
+  </div>
+  <div class="detalle-pelicula">
+    <app-detalle-pelicula [peliculaSeleccionada]="peliculaParaMostrar" (peliculaEliminar)="TomarPeliculaParaEliminar($event)"></app-detalle-pelicula>
+  </div>
+</div>
+
+

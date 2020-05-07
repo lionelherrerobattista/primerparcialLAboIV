@@ -1,0 +1,21 @@
+
+<div class='tabla'>
+  <table id='tabla-peliculas'>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Capital</th>
+        <th>Bandera</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let paises of listadoPaises">
+        <td>{{paises.name}}</td>
+        <td>{{paises.capital}}</td>
+        <td><img [src]="paises.flag"></td>
+
+      </tr>
+
+    </tbody>
+  </table>
+</div>
