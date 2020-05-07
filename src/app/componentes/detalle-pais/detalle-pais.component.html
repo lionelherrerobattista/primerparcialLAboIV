@@ -1,0 +1,14 @@
+<div *ngIf='paisSeleccionado != null' class='detalle-pelicula'>
+  <div class='input-detalle'>
+    <label>Nombre:</label>
+    <input mat-Input value={{paisSeleccionado.name}}>
+  </div >
+  <div class='input-detalle'>
+    <label>Capital:</label>
+    <input mat-Input value={{paisSeleccionado.capital}}>
+  </div>
+  <div>
+    <img [src]="paisSeleccionado.flag">
+  </div>
+  <!-- <button (click)="borrarPelicula()">Borrar</button> -->
+</div>

@@ -24,6 +24,8 @@ import { PaisesListadoComponent } from './componentes/paises-listado/paises-list
 
 
 import { HttpClientModule } from '@angular/common/http';
+import { DetallePaisComponent } from './componentes/detalle-pais/detalle-pais.component';
+import { TablapaisesComponent } from './componentes/tablapaises/tablapaises.component';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { HttpClientModule } from '@angular/common/http';
     TablaPeliculaComponent,
     DetallePeliculaComponent,
     MenuComponent,
-    PaisesListadoComponent
+    PaisesListadoComponent,
+    DetallePaisComponent,
+    TablapaisesComponent
   ],
   imports: [
     BrowserModule,

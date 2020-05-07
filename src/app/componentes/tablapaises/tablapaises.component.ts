@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {PaisesService} from '../../servicios/paises.service';
 
 @Component({
-  selector: 'app-paises-listado',
-  templateUrl: './paises-listado.component.html',
-  styleUrls: ['./paises-listado.component.css']
+  selector: 'app-tablapaises',
+  templateUrl: './tablapaises.component.html',
+  styleUrls: ['./tablapaises.component.css']
 })
-export class PaisesListadoComponent implements OnInit {
+export class TablapaisesComponent implements OnInit {
 
   listadoPaises;
-  paisSeleccionado;
-  paisParaMostrar;
+
+  @Output() paisSeleccionado: EventEmitter<any>= new EventEmitter<any>();
 
   constructor(private paisesService:PaisesService) { }
 
@@ -30,10 +30,9 @@ export class PaisesListadoComponent implements OnInit {
     });
   }
 
-    TomarPaisParaMostrar(pais) {
-
-      this.paisParaMostrar = pais;
-    }
+  MostrarDetalles(pais) {
+    this.paisSeleccionado.emit(pais);
+  }
 
 
 }
