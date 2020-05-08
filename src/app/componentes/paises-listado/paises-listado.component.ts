@@ -8,32 +8,25 @@ import {PaisesService} from '../../servicios/paises.service';
 })
 export class PaisesListadoComponent implements OnInit {
 
-  listadoPaises;
+
   paisSeleccionado;
   paisParaMostrar;
+  paisParaEliminar;
 
   constructor(private paisesService:PaisesService) { }
 
   ngOnInit(): void {
 
-    this.paisesService.obtenerPaises().subscribe(resultado => {
-
-      console.log(resultado);
-
-      this.listadoPaises = resultado;
-
-      console.log(this.listadoPaises);
-
-
-    }, error => {
-        console.log('Error');
-    });
   }
 
-    TomarPaisParaMostrar(pais) {
+  TomarPaisParaMostrar(pais) {
 
-      this.paisParaMostrar = pais;
-    }
+    this.paisParaMostrar = pais;
+  }
+
+  TomarPeliculaParaEliminar(pais) {
+    this.paisParaEliminar = pais;
+  }
 
 
 }

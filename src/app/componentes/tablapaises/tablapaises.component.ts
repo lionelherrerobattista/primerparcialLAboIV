@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import {PaisesService} from '../../servicios/paises.service';
 
 @Component({
@@ -9,6 +9,7 @@ import {PaisesService} from '../../servicios/paises.service';
 export class TablapaisesComponent implements OnInit {
 
   listadoPaises;
+  @Input() paisDeshabilitar;
 
   @Output() paisSeleccionado: EventEmitter<any>= new EventEmitter<any>();
 
@@ -16,13 +17,17 @@ export class TablapaisesComponent implements OnInit {
 
   ngOnInit(): void {
 
+
+
+    console.log(this.paisesService.listadoPaises);
+
     this.paisesService.obtenerPaises().subscribe(resultado => {
 
-      console.log(resultado);
+      // console.log(resultado);
 
       this.listadoPaises = resultado;
 
-      console.log(this.listadoPaises);
+      // console.log(this.listadoPaises);
 
 
     }, error => {
@@ -32,6 +37,17 @@ export class TablapaisesComponent implements OnInit {
 
   MostrarDetalles(pais) {
     this.paisSeleccionado.emit(pais);
+  }
+
+  borrarPais(name) {
+
+    for(let i = 0; i < this.listadoPaises.length; i++) {
+      if(this.listadoPaises[i].name == name) {
+        this.listadoPaises.splice(i, 1);
+        break;
+      }
+    }
+
   }
 
 

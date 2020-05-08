@@ -10,15 +10,41 @@ import { HttpClient } from '@angular/common/http';
 export class PaisesService {
 
   url = environment.urlpaises;
-
   listadoPaises;
 
   constructor(private http:HttpClient) { }
 
   obtenerPaises() {
-    console.log(this.http.get("https://restcountries.eu/rest/v2"));
-    return this.http.get("https://restcountries.eu/rest/v2"); //hago la peticion a nuestra api
+    console.log(this.http.get(environment.urlpaises));
+    return this.http.get(environment.urlpaises); //hago la peticion a nuestra api
   }
+
+  cargarListado() {
+
+
+    this.obtenerPaises().subscribe(resultado => {
+
+      console.log(resultado);
+
+      this.listadoPaises = resultado;
+
+      console.log(this.listadoPaises);
+
+
+    }, error => {
+        console.log('Error');
+    });
+
+
+  }
+
+  devolverListado() {
+
+    return this.listadoPaises;
+
+  }
+
+
 
 
 }

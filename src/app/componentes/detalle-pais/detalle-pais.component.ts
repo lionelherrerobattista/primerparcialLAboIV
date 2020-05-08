@@ -8,13 +8,17 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class DetallePaisComponent implements OnInit {
 
-  @Output() peliculaEliminar: EventEmitter<any>= new EventEmitter<any>();
+  @Output() paisEliminar: EventEmitter<any>= new EventEmitter<any>();
   @Input() paisSeleccionado;
 
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  deshabilitarPais () {
+    this.paisEliminar.emit(this.paisSeleccionado);
   }
 
 }

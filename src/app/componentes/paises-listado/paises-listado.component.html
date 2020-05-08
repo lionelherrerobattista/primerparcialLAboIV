@@ -4,6 +4,6 @@
     <app-tablapaises (paisSeleccionado)="TomarPaisParaMostrar($event)"></app-tablapaises>
   </div>
   <div class="detalle-pelicula">
-    <app-detalle-pais [paisSeleccionado]="paisParaMostrar"></app-detalle-pais>
+    <app-detalle-pais [paisSeleccionado]="paisParaMostrar" (paisEliminar)="TomarPeliculaParaEliminar($event)"></app-detalle-pais>
   </div>
 </div>
