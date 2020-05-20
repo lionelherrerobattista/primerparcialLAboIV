@@ -18,13 +18,15 @@ export class TablapaisesComponent implements OnInit {
   listadoPaises;
 
   constructor(private paisesService:PaisesService) {
-    this.paisesService.devolverListado().subscribe( listado =>{
-      this.listadoPaises = listado;
-    });
+
   }
 
   ngOnInit(): void {
+    this.paisesService.devolverListado().subscribe( listado =>{
+      this.listadoPaises = listado;
+    });
 
+    this.paisesService.actualizarListado();
 
   }
 

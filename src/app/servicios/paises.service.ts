@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Pais } from '../clases/pais';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { map, first } from 'rxjs/operators';
 
 
 @Injectable({
@@ -11,63 +12,70 @@ import { Observable } from 'rxjs';
 export class PaisesService {
 
   url = environment.urlpaises;
-  listadoPaises:Observable<Pais[]>;
+  listadoPaises:Subject<Pais[]>;
+  listadoOriginal:Pais[];
+  listadoFiltrado:Pais[];
   paisesDeshabilitados:Pais[];
-  listado;
+
 
   constructor(private http:HttpClient) {
 
+    this.listadoPaises = new Subject<Pais[]>();
     this.paisesDeshabilitados = [];
+    this.listadoOriginal = [];
+    this.listadoFiltrado = [];
 
-    this.cargarListado();
   }
 
-  ///Carga el listado de paises y devuelve una promesa
-  cargarListado() {
+  actualizarListado() {
 
-  // this.listadoPaises = new Promise((resolve, reject) => {this.http.get<any[]>(environment.urlpaises).subscribe( respuesta => {
-    this.listadoPaises = new Observable((observer) => {this.http.get<any[]>(environment.urlpaises).subscribe( respuesta => {
-    let pais;
-    let auxListado:Pais[] = [];
+    this.getPaises().subscribe( listado => {
 
-    console.log(respuesta);
-    console.log("entro");
+      let pais:Pais;
 
-    for(let auxPais of respuesta) {
+      //Mapear la lista
+      for(let auxPais of listado) {
 
-      pais = new Pais(auxPais.name, auxPais.capital, auxPais.flag);
+        pais = new Pais(auxPais.name, auxPais.capital, auxPais.flag);
 
-      auxListado.push(pais);
-    }
-
-    setInterval(() => {
-
-      //Busco los paises deshabilitados y los saco de la lista
-      if(this.paisesDeshabilitados.length > 0) {
-
-        for(let paisDeshabilitado of this.paisesDeshabilitados) {
-          for(let i=0; i < auxListado.length; i++) {
-            if(auxListado[i].nombre == paisDeshabilitado.nombre) {
-
-              console.log(i);
-              auxListado.splice(i, 1);
-              console.log(auxListado)
-              break;
-
-            }
-          }
-        }
+        this.listadoOriginal.push(pais);
       }
 
-      observer.next(auxListado);
-
-    }, 1000 * 2);
-
-     }, error => { observer.error(error)})
+      //Aplicar filtro si corresponde
+      if(this.paisesDeshabilitados.length > 0) {
+        this.listadoFiltrado = this.filtarPaises();
+        this.listadoPaises.next(this.listadoFiltrado);
+      } else {
+        this.listadoPaises.next(this.listadoOriginal);
+      }
 
     });
-
   }
+
+  getPaises() {
+
+    return this.http.get<any[]>(this.url); //Devuelve una sola respuesta
+  }
+
+  ///Filtra los paises de acuerdo a la lista de paises que fueron deshabilitados
+  ///Devuelve lista filtrada
+  filtarPaises():Pais[] {
+
+      let listadoFiltrado = this.listadoOriginal.filter( pais => {
+        let incluirEnLista = true;
+
+        for(let paisDeshabilitado of this.paisesDeshabilitados) {
+          if(pais.nombre == paisDeshabilitado.nombre) {
+            incluirEnLista = false;
+            break;
+          }
+        }
+        return incluirEnLista;
+      })
+
+    return listadoFiltrado;
+  }
+
 
   ///Devuelve el listado de paises
   devolverListado() {
@@ -76,9 +84,10 @@ export class PaisesService {
 
   }
 
+  //Agrega un país a la lista de paises deshabilitados
   deshabiliarPais(pais) {
     this.paisesDeshabilitados.push(pais);
-    // this.cargarListado();
+    this.actualizarListado();
   }
 
 
