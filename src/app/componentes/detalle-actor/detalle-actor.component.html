@@ -1,0 +1,34 @@
+<div *ngIf='actorSeleccionado != null' class='detalle-pelicula'>
+  <div>
+    <img [src]="actorSeleccionado.foto">
+  </div>
+  <div class='input-detalle'>
+    <label>Id:</label>
+    <input mat-Input value={{actorSeleccionado.id}} disabled>
+  </div >
+  <div class='input-detalle'>
+    <label>Nombre:</label>
+    <input mat-Input value={{actorSeleccionado.nombre}} disabled>
+  </div >
+  <div class='input-detalle'>
+    <label>Apellido:</label>
+    <input mat-Input value={{actorSeleccionado.apellido}} disabled>
+  </div >
+  <div class='input-detalle'>
+    <label>Sexo:</label>
+    <input mat-Input value={{actorSeleccionado.sexo}} disabled>
+  </div >
+  <div class='input-detalle'>
+    <label>Fecha de nacimiento:</label>
+    <input mat-Input value={{actorSeleccionado.fechaDeNacimiento}} disabled>
+  </div>
+  <div class='input-detalle'>
+    <label>País de origen:</label>
+    <input mat-Input value={{actorSeleccionado.paisDeOrigen.nombre}} disabled>
+  </div >
+  <div>
+    <img [src]="actorSeleccionado.paisDeOrigen.bandera">
+  </div>
+
+  <!-- <button (click)="deshabilitarPais()">Borrar</button> -->
+</div>

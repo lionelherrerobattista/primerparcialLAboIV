@@ -1,0 +1,28 @@
+
+<div class='tabla'>
+  <table id='tabla-peliculas'>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Sexo</th>
+        <th>Fecha de nacimiento</th>
+        <th>Foto</th>
+        <th>País de origen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr (click)="MostrarDetalles(actor)" *ngFor="let actor of listadoActores">
+        <td>{{actor.id}}</td>
+        <td>{{actor.nombre}}</td>
+        <td>{{actor.apellido}}</td>
+        <td>{{actor.sexo}}</td>
+        <td>{{actor.fechaDeNacimiento}}</td>
+        <td><img [src]="actor.foto"></td>
+        <td>{{actor.paisDeOrigen.nombre}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

@@ -21,11 +21,14 @@ import { DetallePeliculaComponent } from './componentes/detalle-pelicula/detalle
 import {MatInputModule} from '@angular/material/input';
 import { MenuComponent } from './componentes/menu/menu.component';
 import { PaisesListadoComponent } from './componentes/paises-listado/paises-listado.component';
-
+import {MatRadioModule} from '@angular/material/radio';
+import { FormsModule } from '@angular/forms'
 
 import { HttpClientModule } from '@angular/common/http';
 import { DetallePaisComponent } from './componentes/detalle-pais/detalle-pais.component';
 import { TablapaisesComponent } from './componentes/tablapaises/tablapaises.component';
+import { TablaActorComponent } from './componentes/tabla-actor/tabla-actor.component';
+import { DetalleActorComponent } from './componentes/detalle-actor/detalle-actor.component';
 
 
 @NgModule({
@@ -42,7 +45,9 @@ import { TablapaisesComponent } from './componentes/tablapaises/tablapaises.comp
     MenuComponent,
     PaisesListadoComponent,
     DetallePaisComponent,
-    TablapaisesComponent
+    TablapaisesComponent,
+    TablaActorComponent,
+    DetalleActorComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +58,9 @@ import { TablapaisesComponent } from './componentes/tablapaises/tablapaises.comp
     MatButtonModule,
     MatMenuModule,
     MatInputModule,
+    MatRadioModule,
     HttpClientModule,
+    FormsModule,
 
   ],
   providers: [],

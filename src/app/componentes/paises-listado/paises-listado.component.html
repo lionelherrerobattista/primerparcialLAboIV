@@ -1,7 +1,7 @@
 <app-menu></app-menu>
 <div class="apps">
   <div class="tabla-pelicula">
-    <app-tablapaises (paisSeleccionado)="TomarPaisParaMostrar($event)"></app-tablapaises>
+    <app-tablapaises [listadoParaMostrar]="listadoPaises" (paisSeleccionado)="TomarPaisParaMostrar($event)"></app-tablapaises>
   </div>
   <div class="detalle-pelicula">
     <app-detalle-pais [paisSeleccionado]="paisParaMostrar" (paisEliminar)="TomarPeliculaParaEliminar($event)"></app-detalle-pais>

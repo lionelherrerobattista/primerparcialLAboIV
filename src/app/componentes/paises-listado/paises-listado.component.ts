@@ -12,8 +12,12 @@ export class PaisesListadoComponent implements OnInit {
   paisSeleccionado;
   paisParaMostrar;
   paisParaEliminar;
+  listadoPaises
 
-  constructor(private paisesService:PaisesService) { }
+  constructor(private paisesService:PaisesService) {
+
+    this.listadoPaises = this.paisesService.devolverListado();
+   }
 
   ngOnInit(): void {
 
@@ -25,7 +29,8 @@ export class PaisesListadoComponent implements OnInit {
   }
 
   TomarPeliculaParaEliminar(pais) {
-    this.paisParaEliminar = pais;
+    this.paisesService.deshabiliarPais(pais);
+    console.log(this.paisesService.paisesDeshabilitados)
   }
 
 

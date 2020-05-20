@@ -1,1 +1,12 @@
-<p>actor-listado works!</p>
+<app-menu></app-menu>
+<div class="apps">
+  <div id="tabla-actores">
+    <app-tabla-actor (actorSeleccionado)="TomarActorParaMostrar($event)"></app-tabla-actor>
+  </div>
+  <div id="detalles">
+    <app-detalle-actor [actorSeleccionado]="actorParaMostrar" ></app-detalle-actor>
+    <app-detalle-pais [paisSeleccionado]="paisParaMostrar"></app-detalle-pais>
+  </div>
+</div>
+
+

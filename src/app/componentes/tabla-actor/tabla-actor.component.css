@@ -1,8 +1,8 @@
 .tabla {
 
   display: flex;
-  height: 60vh;
-  width: 40vw;
+  height: 20vh;
+  width: 60vw;
   overflow-y: scroll;
   border-radius: 5px;
   border-width: 5px;
