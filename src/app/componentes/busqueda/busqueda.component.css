@@ -1,0 +1,22 @@
+
+#apps {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5vh 5vw 5vh 5vw;
+}
+
+#div-peliculas {
+  display: flex;
+  flex-direction: row;
+  height: 60vh;
+  margin-bottom: 2vh;
+
+}
+
+#div-actores {
+  height: 20vh;
+}
+
+

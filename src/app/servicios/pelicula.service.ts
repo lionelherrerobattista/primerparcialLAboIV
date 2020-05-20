@@ -11,9 +11,9 @@ export class PeliculaService {
   constructor() {
 
     this.listadoPeliculas = [
-      {id: 1, nombre: "Rocky I", tipo:'otros', fechaDeEstreno:'01/01/1976', cantidadDePublico: 2000000, fotoDePelicula:'/assets/img/rock1.jpg' },
-      {id: 2, nombre: "Rocky II", tipo:'otros', fechaDeEstreno:'01/01/1979', cantidadDePublico: 2000000, fotoDePelicula:'/assets/img/rocky2.jpg' },
-      {id: 3, nombre: "Rocky III", tipo:'otros', fechaDeEstreno:'01/01/1982', cantidadDePublico: 2000000, fotoDePelicula:'/assets/img/rocky3.jpg' },
+      {id: 1, nombre: "Rocky I", tipo:'otros', fechaDeEstreno:'01/01/1976', cantidadDePublico: 2000000, fotoDePelicula:'/assets/img/rock1.jpg', idActores:[1,2] },
+      {id: 2, nombre: "Rocky II", tipo:'otros', fechaDeEstreno:'01/01/1979', cantidadDePublico: 2000000, fotoDePelicula:'/assets/img/rocky2.jpg', idActores:[2] },
+      {id: 3, nombre: "Rocky III", tipo:'otros', fechaDeEstreno:'01/01/1982', cantidadDePublico: 2000000, fotoDePelicula:'/assets/img/rocky3.jpg', idActores:[1] },
     ];
    }
 

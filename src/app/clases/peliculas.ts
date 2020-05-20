@@ -1,3 +1,5 @@
+import { Actor } from './actor';
+
 export class Pelicula {
 
   id:number;
@@ -6,8 +8,9 @@ export class Pelicula {
   fechaDeEstreno:string;
   cantidadDePublico:number;
   fotoDePelicula:string;
+  idActores:number[];
 
-  constructor(id, nombre, tipo, fechaDeEstreno, cantidadDePublico, fotoDePelicula) {
+  constructor(id, nombre, tipo, fechaDeEstreno, cantidadDePublico, fotoDePelicula, idActores:number[]) {
 
     if(Pelicula.ValidarTipo) {
       this.id = id;
@@ -16,6 +19,10 @@ export class Pelicula {
       this.fechaDeEstreno = fechaDeEstreno;
       this.cantidadDePublico = cantidadDePublico;
       this.fotoDePelicula = fotoDePelicula;
+      this.idActores = [];
+      for(let actor of idActores) {
+        this.idActores.push(actor);
+      }
     }
 
   }

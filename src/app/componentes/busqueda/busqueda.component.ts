@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Pelicula } from 'src/app/clases/peliculas';
+import { ActorService } from 'src/app/servicios/actor.service';
 
 @Component({
   selector: 'app-busqueda',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BusquedaComponent implements OnInit {
 
-  constructor() { }
+  peliculaParaMostrar:Pelicula;
+  mostrarLista:boolean;
+
+  constructor(private actorService:ActorService) {
+    this.mostrarLista = false;
+  }
 
   ngOnInit(): void {
+  }
+
+  tomarPeliculaSeleccionada(pelicula:Pelicula) {
+    this.peliculaParaMostrar = pelicula;
+    this.actorService.filtrarActoresPorId(pelicula.idActores);
+    this.mostrarLista = true;
+
   }
 
 }

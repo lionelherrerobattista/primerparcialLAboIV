@@ -1,2 +1,13 @@
 <app-menu></app-menu>
-<app-tabla-pelicula></app-tabla-pelicula>
+
+<div id="apps">
+  <div id="div-peliculas">
+    <app-tabla-pelicula (peliculaSeleccionada)="tomarPeliculaSeleccionada($event)"></app-tabla-pelicula>
+    <app-detalle-pelicula [peliculaSeleccionada]="peliculaParaMostrar"></app-detalle-pelicula>
+  </div>
+  <div *ngIf="mostrarLista" id="div-actores">
+    <app-tabla-actor></app-tabla-actor>
+  </div>
+</div>
+
+

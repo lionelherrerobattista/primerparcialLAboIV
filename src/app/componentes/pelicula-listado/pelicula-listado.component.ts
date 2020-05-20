@@ -24,11 +24,7 @@ export class PeliculaListadoComponent implements OnInit {
   }
 
   TomarPeliculaParaEliminar(pelicula:Pelicula) {
-    this.peliculaParaEliminar = pelicula;
-  }
-
-  eliminarPelicula() {
-    this.peliculaService.borrarPelicula(this.peliculaParaEliminar.id);
+    this.peliculaService.borrarPelicula(pelicula.id);
   }
 
 

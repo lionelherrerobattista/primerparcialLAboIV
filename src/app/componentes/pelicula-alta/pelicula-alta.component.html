@@ -1,1 +1,38 @@
-<p>pelicula-alta works!</p>
+<app-menu></app-menu>
+
+<div id="vista">
+  <div id="alta">
+    <form class="alta-actor">
+      <mat-form-field >
+        <mat-label>Nombre</mat-label>
+        <input matInput [(ngModel)]="nombre" name="nombre" required>
+      </mat-form-field>
+
+      <mat-radio-group aria-label="Seleccione una opcion">
+        <mat-radio-button [(ngModel)]="tipo" value="Terror" name="Terror" ngDefaultControl>Terror</mat-radio-button>
+        <mat-radio-button [(ngModel)]="tipo" value="Comedia" name="Comedia" ngDefaultControl>Comedia</mat-radio-button>
+        <mat-radio-button [(ngModel)]="tipo" value="Amor" name="Amor" ngDefaultControl>Amor</mat-radio-button>
+        <mat-radio-button [(ngModel)]="tipo" value="Otros" name="Otros" ngDefaultControl>Otros</mat-radio-button>
+      </mat-radio-group>
+
+      <mat-form-field >
+        <mat-label>Cantidad de público</mat-label>
+        <input matInput type="date" [(ngModel)]="fechaDeEstreno" name="fechaDeEstreno" required>
+      </mat-form-field>
+
+      <mat-form-field >
+        <mat-label>Cantidad de público</mat-label>
+        <input matInput type="number" [(ngModel)]="cantidadDePublico" name="cantidadPublico" required>
+      </mat-form-field>
+
+      <mat-label>Actores</mat-label>
+      <mat-form-field *ngFor="let actor of actores">
+        <input matInput  [value]="actor.nombre" name="actorNombre" required disabled >
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" (click)="cargarPelicula()">Cargar</button>
+    </form>
+  </div>
+  <app-tabla-actor (actorSeleccionado)="tomarActor($event)"></app-tabla-actor>
+</div>
+

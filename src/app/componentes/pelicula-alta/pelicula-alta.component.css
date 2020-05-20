@@ -1,0 +1,29 @@
+#vista {
+  display:flex;
+  flex-direction: row;
+  padding: 2vh 2vw 2vh 2vw;
+}
+
+#alta {
+  display:flex;
+  flex-direction: column;
+  max-height: 100vh;
+  max-width: 50vh;
+  margin-right: 2vw;
+}
+
+.alta-actor {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: rgba(163, 162, 162, 0.883);
+  border-radius: 15px;
+  height: 60vh;
+  padding: 2vh 2vw 2vh 2vw;
+
+
+}
+
+mat-radio-button {
+  margin-left: 2vw;
+}

@@ -13,10 +13,17 @@ export class TablaActorComponent implements OnInit {
   listadoActores:Actor[];
 
   constructor(private actorService:ActorService) {
-    this.listadoActores = this.actorService.getActores();
+
   }
 
   ngOnInit(): void {
+    //Suscribir al subject
+    this.actorService.getActores().subscribe( listaActores => {
+      this.listadoActores = listaActores;
+     });
+
+     //Emitir la lista desde el sevicio
+     this.actorService.actualizarLista();
   }
 
   MostrarDetalles(actor) {
