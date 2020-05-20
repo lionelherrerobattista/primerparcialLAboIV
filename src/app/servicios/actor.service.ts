@@ -23,6 +23,11 @@ export class ActorService {
     return this.listaActores;
   }
 
+
+  devolverProximoId() {
+    return this.listaCompleta.length + 1;
+  }
+
   actualizarLista(){
     this.listaActores.next(this.listaCompleta);
   }

@@ -34,7 +34,9 @@ export class ActorAltaComponent implements OnInit {
 
     if(this.paisDeOrigen != undefined) {
 
-      id = this.actorService.getActores().length + 1;
+      id = this.actorService.devolverProximoId();
+
+      console.log(id);
 
       actorNuevo = new Actor(id, this.nombre, this.apellido, this.sexo, this.fechaDeNacimiento, this.foto, this.paisDeOrigen);
 
