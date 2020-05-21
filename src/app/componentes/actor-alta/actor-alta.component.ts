@@ -29,9 +29,6 @@ export class ActorAltaComponent implements OnInit {
     let actorNuevo;
     let id;
 
-
-    console.log(this.paisDeOrigen)
-
     if(this.paisDeOrigen != undefined) {
 
       id = this.actorService.devolverProximoId();

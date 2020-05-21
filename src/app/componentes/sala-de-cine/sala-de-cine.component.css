@@ -1,0 +1,76 @@
+
+.apps{
+  padding: 2vh 2vw 2vh 2vw;
+}
+
+#lista-cines {
+
+  width: 50vw;
+
+}
+
+#detalles {
+  margin: 2vh 0 0 0;
+  width: 50vw;
+}
+
+.tabla {
+
+  display: flex;
+  max-height: 100%;
+  max-width: 100%;
+  overflow-y: scroll;
+  border-radius: 5px;
+  border-width: 5px;
+  border-color: black;
+  border-style: solid;
+
+}
+
+.tabla-peliculas {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+
+}
+
+.tabla-peliculas td, #tabla-peliculas th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.tabla-peliculas tr:nth-child(even){background-color: #f2f2f2;}
+
+.tabla-peliculas tr:hover {background-color: #ddd;}
+
+.tabla-peliculas th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+/* Para modificar la scrollbar en chrome */
+/* width */
+::ng-deep ::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::ng-deep ::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  /* border-radius: 5px; */
+}
+
+/* Handle */
+::ng-deep ::-webkit-scrollbar-thumb {
+  background: rgb(37, 32, 32);
+  /* border-radius: 4px; */
+}
+
+/* Handle on hover */
+::ng-deep ::-webkit-scrollbar-thumb:hover {
+  background: rgb(37, 32, 32);
+}

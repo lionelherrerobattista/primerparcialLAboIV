@@ -29,6 +29,7 @@ import { DetallePaisComponent } from './componentes/detalle-pais/detalle-pais.co
 import { TablapaisesComponent } from './componentes/tablapaises/tablapaises.component';
 import { TablaActorComponent } from './componentes/tabla-actor/tabla-actor.component';
 import { DetalleActorComponent } from './componentes/detalle-actor/detalle-actor.component';
+import { SalaDeCineComponent } from './componentes/sala-de-cine/sala-de-cine.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { DetalleActorComponent } from './componentes/detalle-actor/detalle-actor
     DetallePaisComponent,
     TablapaisesComponent,
     TablaActorComponent,
-    DetalleActorComponent
+    DetalleActorComponent,
+    SalaDeCineComponent
   ],
   imports: [
     BrowserModule,

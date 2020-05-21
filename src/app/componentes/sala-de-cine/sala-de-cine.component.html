@@ -1,0 +1,47 @@
+<app-menu></app-menu>
+<div class="apps">
+  <div id="lista-cines">
+    <div class='tabla'>
+      <table class='tabla-peliculas'>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Imagen</th>
+            <th>Pais</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr (click)="mostrarDetallePeliculas(cine)" *ngFor="let cine of listadoCines">
+            <td>{{cine.nombre}}</td>
+            <td><img [src]="cine.imagen"></td>
+            <td>{{cine.pais.nombre}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="detalles" *ngIf="listadoPeliculas != undefined">
+    <div class="tabla">
+      <table class='tabla-peliculas'>
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Pelicula</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr (click)="mostrarPelicula(pelicula.pelicula)" *ngFor="let pelicula of listadoPeliculas">
+            <td>{{pelicula.fecha}}</td>
+            <td>{{pelicula.pelicula.nombre}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="app-detalle">
+      <app-detalle-pelicula [peliculaSeleccionada]="peliculaParaDetalle"></app-detalle-pelicula>
+    </div>
+
+  </div>
+</div>
