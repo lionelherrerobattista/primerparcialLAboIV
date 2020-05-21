@@ -17,7 +17,12 @@
     <button mat-menu-item routerLink="/paises/listado">Listado</button>
   </mat-menu>
 
-  <button mat-menu-item routerLink="/saladecine">Sala de Cine</button>
+  <button mat-button [matMenuTriggerFor]="cines">Cines</button>
+  <mat-menu #cines="matMenu">
+    <button mat-menu-item routerLink="/saladecine">Sala de Cine</button>
+    <button mat-menu-item routerLink="/cines/alta">Alta</button>
+  </mat-menu>
+
 
 
 </mat-toolbar>

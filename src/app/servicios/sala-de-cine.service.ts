@@ -40,4 +40,8 @@ export class SalaDeCineService {
   actualizarLista(){
     this.listaCines.next(this.listaCompleta);
   }
+
+  agregarcine(cine:SalaDeCine) {
+    this.listaCompleta.push(cine);
+  }
 }

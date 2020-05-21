@@ -1,0 +1,38 @@
+<app-menu></app-menu>
+
+<div id="vista">
+  <div id="alta">
+    <form class="alta-actor">
+      <mat-form-field class="example-full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput [(ngModel)]="nombre" name="nombre" placeholder="Nombre" required>
+      </mat-form-field>
+
+      <mat-form-field *ngIf="pais!=undefined" class="example-full-width">
+        <mat-label>Pais</mat-label>
+        <input matInput  [(ngModel)]="pais.nombre" name="pais" required disabled >
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Fecha de estreno</mat-label>
+        <input matInput [(ngModel)]="fechaDeEstreno" name="fecha" type="date" required>
+      </mat-form-field>
+
+      <mat-label>Peliculas</mat-label>
+      <mat-form-field *ngFor="let pelicula of peliculas">
+        <input matInput  [value]="pelicula.nombre" name="peliculaNombre" required disabled >
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" (click)="cargarCine()">Cargar</button>
+    </form>
+  </div>
+
+  <div id="tabla-paises">
+    <app-tablapaises (paisSeleccionado)="tomarPais($event)"></app-tablapaises>
+  </div>
+
+  <div class="tabla-pelicula">
+    <app-tabla-pelicula (peliculaSeleccionada)="tomarPelicula($event)"></app-tabla-pelicula>
+  </div>
+
+</div>

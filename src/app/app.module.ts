@@ -30,6 +30,7 @@ import { TablapaisesComponent } from './componentes/tablapaises/tablapaises.comp
 import { TablaActorComponent } from './componentes/tabla-actor/tabla-actor.component';
 import { DetalleActorComponent } from './componentes/detalle-actor/detalle-actor.component';
 import { SalaDeCineComponent } from './componentes/sala-de-cine/sala-de-cine.component';
+import { CineAltaComponent } from './componentes/cine-alta/cine-alta.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { SalaDeCineComponent } from './componentes/sala-de-cine/sala-de-cine.com
     TablapaisesComponent,
     TablaActorComponent,
     DetalleActorComponent,
-    SalaDeCineComponent
+    SalaDeCineComponent,
+    CineAltaComponent
   ],
   imports: [
     BrowserModule,
