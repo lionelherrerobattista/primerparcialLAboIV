@@ -3,6 +3,10 @@
   padding: 2vh 2vw 2vh 2vw;
 }
 
+#buscar input {
+  margin-left: 2vw;
+}
+
 #lista-cines {
 
   width: 50vw;

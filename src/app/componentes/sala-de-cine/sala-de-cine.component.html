@@ -1,5 +1,19 @@
 <app-menu></app-menu>
 <div class="apps">
+  <div id="buscar">
+    <div>
+      <label>Buscar Sala por Nombre:</label>
+      <input [(ngModel)]="busquedaNombre">
+      <button (click)="buscarPorNombre()">Buscar</button>
+    </div>
+
+    <div id="input-pais">
+      <label>Buscar Sala por Pais:</label>
+      <input [(ngModel)]="busquedaPais">
+      <button (click)="buscarPorPais()">Buscar</button>
+    </div>
+
+  </div>
   <div id="lista-cines">
     <div class='tabla'>
       <table class='tabla-peliculas'>
@@ -8,13 +22,18 @@
             <th>Nombre</th>
             <th>Imagen</th>
             <th>Pais</th>
+            <th>Detalles</th>
+            <th>Deshabilitar</th>
+            <!-- (click)="mostrarDetallePeliculas(cine)" -->
           </tr>
         </thead>
         <tbody>
-          <tr (click)="mostrarDetallePeliculas(cine)" *ngFor="let cine of listadoCines">
+          <tr *ngFor="let cine of listadoCines">
             <td>{{cine.nombre}}</td>
             <td><img [src]="cine.imagen"></td>
             <td>{{cine.pais.nombre}}</td>
+            <td><button (click)="mostrarDetallePeliculas(cine)">Detalles</button></td>
+            <td><button (click)="deshabilitarSala(cine)">X</button></td>
           </tr>
         </tbody>
       </table>

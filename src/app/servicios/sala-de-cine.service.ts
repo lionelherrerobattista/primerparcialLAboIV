@@ -9,9 +9,12 @@ export class SalaDeCineService {
 
   listaCines:Subject<SalaDeCine[]>;
   listaCompleta:SalaDeCine[];
+  salasDeshabilitadas:SalaDeCine[];
 
   constructor() {
     this.listaCines = new Subject<SalaDeCine[]>();
+
+    this.salasDeshabilitadas = [];
 
     this.listaCompleta = [
       {id:1,nombre:"Village",imagen:"",pais:{nombre:"Argentina", capital:"Buenos Aires", bandera:"" },
@@ -38,10 +41,71 @@ export class SalaDeCineService {
   }
 
   actualizarLista(){
-    this.listaCines.next(this.listaCompleta);
+    let lista= this.filtarCines();
+
+    this.listaCines.next(lista);
   }
 
   agregarcine(cine:SalaDeCine) {
     this.listaCompleta.push(cine);
+  }
+
+  filtarCines():SalaDeCine[] {
+
+    let listadoFiltrado = this.listaCompleta.filter( sala => {
+      let incluirEnLista = true;
+
+      for(let salaDeshabiltada of this.salasDeshabilitadas) {
+        if(sala.nombre == salaDeshabiltada.nombre) {
+          incluirEnLista = false;
+          break;
+        }
+      }
+      return incluirEnLista;
+    })
+
+    return listadoFiltrado;
+  }
+
+  filtrarPorNombre(nombre:string) {
+
+    let listadoFiltrado = this.listaCompleta.filter( sala => {
+      let incluirEnLista = false;
+
+
+        if(sala.nombre == nombre) {
+          incluirEnLista = true;
+
+        }
+
+      return incluirEnLista;
+    })
+
+    this.listaCines.next(listadoFiltrado);
+
+  }
+
+  filtrarPorPais(pais:string) {
+
+    let listadoFiltrado = this.listaCompleta.filter( sala => {
+      let incluirEnLista = false;
+
+
+        if(sala.pais.nombre == pais) {
+          incluirEnLista = true;
+
+        }
+
+      return incluirEnLista;
+    })
+
+    this.listaCines.next(listadoFiltrado);
+
+  }
+
+  deshabilitarSala(sala:SalaDeCine) {
+    this.salasDeshabilitadas.push(sala);
+    console.log(this.salasDeshabilitadas);
+    this.actualizarLista();
   }
 }

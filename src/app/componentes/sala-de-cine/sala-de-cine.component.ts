@@ -13,6 +13,8 @@ export class SalaDeCineComponent implements OnInit {
   listadoCines:SalaDeCine[];
   listadoPeliculas:any[];
   peliculaParaDetalle;
+  busquedaNombre:string;
+  busquedaPais:string;
 
 
   constructor(private salaDeCineService:SalaDeCineService) { }
@@ -33,6 +35,18 @@ export class SalaDeCineComponent implements OnInit {
 
   mostrarPelicula(pelicula:any) {
     this.peliculaParaDetalle = pelicula;
+  }
+
+  deshabilitarSala(sala:SalaDeCine) {
+    this.salaDeCineService.deshabilitarSala(sala);
+  }
+
+  buscarPorNombre() {
+    this.salaDeCineService.filtrarPorNombre(this.busquedaNombre);
+  }
+
+  buscarPorPais() {
+    this.salaDeCineService.filtrarPorPais(this.busquedaPais);
   }
 
 }
